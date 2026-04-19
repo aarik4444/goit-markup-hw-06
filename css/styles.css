@@ -140,13 +140,16 @@ img {
   gap: 40px;
 }
 
+/* Базові стилі (Mobile first) */
 .contacts-link {
   font-size: 12px;
   line-height: 1.17;
+  letter-spacing: 0.04em; /* Додайте це сюди */
   color: #434455;
-  text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* У медіа-запиті 768px це значення можна залишити або змінити, якщо воно інше */
 
 .contacts-link:hover,
 .contacts-link:focus {
@@ -766,24 +769,29 @@ img {
 
 .checkbox-label {
   font-size: 12px;
-  color: #8e8f99;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 8px;
-
   line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  /* Прибираємо flex, щоб текст залишався текстом */
 }
+
 .checkbox-custom {
-  width: 16px;
-  height: 16px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 2px;
-  flex-shrink: 0;
-  display: flex;
+  /* Робимо його рядковим елементом, щоб він був у потоці тексту */
+  display: inline-flex; 
   align-items: center;
   justify-content: center;
+  
+  width: 16px;
+  height: 16px;
+  margin-right: 8px; /* Замість gap використовуємо margin */
+  
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  fill: transparent; /* Щоб іконка була прихована, поки не чекнемо */
+  
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .checkbox-custom-icon {
   fill: #f4f4fd;
@@ -1264,11 +1272,14 @@ img {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1157px) and (min-resolution: 192dpi) {
-  .hero {
-    background-image:
-      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 46, 66, 0.7)),
-      url('../images/hero-tablet@2x.jpg');
+@media screen and (min-width: 768px) {
+  .footer-container {
+    /* Приберіть padding-left: 108px; */
+    width: 584px; /* Встановіть ширину згідно з макетом для планшета */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin: 0 auto; /* Це вирівняє весь блок по центру */
   }
 }
 
